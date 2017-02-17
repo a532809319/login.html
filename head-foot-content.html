@@ -23,13 +23,19 @@
           <button class="button">Right Button</button>
       </div>
   </ion-header-bar>
-  <ion-content class="has-header">
+  <ion-content class="has-header" overflow-scroll="true" >
+      <ion-refresher
+              spinner="spiral"
+              pulling-text="下来刷新..."
+              on-refresh="doRefresh()">
+      </ion-refresher>
       <ul class="list">
           <li class="item" ng-repeat="item in items"> {{item}}</li>
       </ul>
   </ion-content>
 
   <ion-footer-bar align-title="left" class="bar-assertive">
+
       <div class="buttons">
           <button class="button">Left Button</button>
       </div>
@@ -50,10 +56,15 @@
 
     app.controller("firstCtr", ['$scope',
         function firstCtr($scope) {
-         $scope.items=[];
-         for (var i=0;i<20;i++){
-             $scope.items.push('line'+i);
-         }
+            $scope.items = [1,2,3];
+            $scope.doRefresh = function() {
+                for(var i=0;i<20;i++){
+                    $scope.items.push(["this is line ",i].join(""));
+                    $scope.$broadcast('scroll.refreshComplete');
+                }
+            };
+
+
         }
     ]);
 
