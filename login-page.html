@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="login.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="login.js"></script>
+    <style>
+    </style>
+</head>
+<body ng-controller="firstCtr">
+<ion-header-bar align-title="center" class="dark-bg">
+    <img src="img/back.png" alt="" class="img-back">
+    <h1 class="title">借财童子</h1>
+</ion-header-bar>
+<ion-content>
+    <div class="list" id="list">
+        <label class="item item-input item-stacked-label"  id="label11" style=" display: -webkit-box">
+            <img src="img/login_phone.png" class="img-back1" alt="">
+            <input ng-model="test.phone" class="placeholde" style="font-size: 36px" type="text" placeholder="请输入您的手机号">
+        </label>
+        <div class="item item-input-inset" id="label2" style="   display: -webkit-box">
+            <label class="item-input-wrapper" style="background: white">
+                <img src="img/denglu_code.png" class="img-back1" alt="">
+                <input type="text" ng-model="test.yzm" value="dddd" id="a" placeholder="短信验证码" class="placeholde"
+                       style="font-size: 36px">
+            </label>
+            <button class="button button-small " id="sendMessage" ng-click="doRequst()">
+                获取验证码
+            </button>
+        </div>
+        <ion-item class="item item-input item-stacked-label" style=" margin-top: 48px;    display: -webkit-box">
+            <img src="img/denglu_key.png" class="img-back1" alt="">
+
+            <input id="passwordInput" type="password" class="placeholde" ng-model="test.password"
+                   style="font-size: 36px" placeholder="请您输入6-20位数字+字母密码">
+            <div id="box-eye" ng-click="eyePassword()">
+                <img src="img/denglu_eye_close.png" ng-click="imgEye()" id="eye" class="img-back2" alt="">
+
+            </div>
+
+        </ion-item>
+
+    </div>
+    <div class="padding clearfix">
+        <img id="red-check" class="fl" ng-click="img()" style="margin-left: 60px;margin-top: 5px"
+             src="img/denglu_agree.png" class="img-back1" alt="">
+        <span class="fl text">我同意</span>
+        <span class="fl text text-red"> 《借款服务与隐私协议》</span>
+
+    </div>
+
+    <div class="padding">
+        <button style="margin-top: 20px" class="button button-block button-positive activated "
+                ng-click="doTest($event)" id="load"> 立即注册
+        </button>
+    </div>
+
+</ion-content>
+
+
+</body>
+</html>
